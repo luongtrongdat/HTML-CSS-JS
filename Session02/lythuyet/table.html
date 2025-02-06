@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    các thành phần cơ bản trong table
+    1. tr: hiệnthị hàng
+    2. thead: phần đầu
+    +tr_th
+    3. tbody: phầnthân
+    +tr_td
+    4. tfoot: phần cuối
+    5. caption: mô tả tiêu đề của bảng
+    **********
+    các thuộc tính trong table
+    1. border: độ dày của viền 
+    2. cellpadding: khoảng cách giữa nội dung và viền
+    3. cellspacing: khoảng cách giữa các ô
+    ****
+    Thuộc tính của td
+    1. align: căn chỉnh nội dung
+    2. bcolor: màu nền
+    -->
+    <table border="1" cellpadding="5" cellspacing= 5">
+        <caption>Quản lý sinh viên</caption>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Tuổi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">1</td>
+                <td>Nguyen Van A</td>
+                <td rowspan="2">25</td>
+            </tr>
+            <tr>
+                <td align="right">2</td>
+                <td bgcolor="blue">Nguyen Van b</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Nguyen Van c</td>
+                <td>26</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" align="center">Tổng số sinh viên: 3</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
