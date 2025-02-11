@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.table {
+    border-collapse:collapse; text-align: center; width: 1300px;
+    margin: 0 10px;
+}
+.text {
+    text-align: center;
+}
+.header {
+    background-color: rgb(21, 107, 204);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+.color {
+    background-color: rgb(219, 213, 213);
+    line-height: 30px;
+}
+.line {
+    line-height: 30px;
+}
+.green {
+    background-color: rgb(0, 128, 0);
+    color: white;
+    line-height: 20px;
+}
+.yellow {
+    background-color: rgb(255, 255, 0);
+    color: black;
+    line-height: 20px;
+}
+.red {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    line-height: 20px;
+}

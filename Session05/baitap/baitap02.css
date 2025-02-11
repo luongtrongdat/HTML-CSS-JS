@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.background {
+    background-color: black;
+}
+.name {
+    color: white;
+}
+.text {
+    color: rgb(35, 224, 129)
+}

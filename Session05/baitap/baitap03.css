@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.table {
+    border-collapse:collapse;text-align: center; width: 1300px;
+    margin: 0 10px;
+}
+.text {
+    text-align: center;
+}
+.header {
+    background-color: rgb(21, 107, 204);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+.one {
+    background-color: rgb(228, 226, 226);
+    text-align: center;
+    line-height: 30px;
+}
+.line {
+    line-height: 30px;
+}

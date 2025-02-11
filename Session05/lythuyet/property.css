@@ -1,0 +1,22 @@
+/* reset css:
+    đưa css về mặc định
+ */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+div {
+    background-color: tomato;
+    width: 300px;
+    height: 100px;
+    color: #f3f1f1d8;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: 1000px;
+    border: 5px solid rgb(226, 230, 24);
+    border-radius: 10px;
+    text-align: center;
+    line-height: 100px;
+    letter-spacing: 10px;
+}

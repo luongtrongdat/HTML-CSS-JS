@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background-color: #eef0f1;
+    padding: 15px;
+    border-radius: 10px;
+}
+.block {
+    border-left: 10px solid;
+    border-color:hsl(157.55deg 94.22% 33.92%);
+    background-color: #fffaef;
+    padding: 10px;
+    line-height: 0,75;
+}
+.red1 {
+    color: red;
+    background-color: rgb(233, 231, 231);
+}
+.red2 {
+    color: red;
+}   
+.blue {
+    color:blue
+}
+.brown {
+    color: brown;
+}
+.green {
+    border: 2px solid green;
+    padding: 10px;
+    font-weight: 900;
+    text-align: center;
+}
+.button {
+    background-color: hsl(157.55deg 94.22% 33.92%);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
