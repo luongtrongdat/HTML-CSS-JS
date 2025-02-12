@@ -17,8 +17,15 @@
     color: rgb(32, 108, 221);
     padding-left: 10px;
 }
-.left {
+.content {
     border: 2px solid gray;
     width: 20vw;
     background-color: #f3ecec;
+}
+.footer {
+    background-color: rgb(68, 65, 65);
+    color: white;
+    line-height: 30px;
+    text-align: center;
+    line-height: 50px;
 }
