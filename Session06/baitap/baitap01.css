@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    text-align: center;
+}
+.header {
+    background-color: #2975cc;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    line-height: 40px;
+}
+.menu {
+    line-height: 30px;
+}
+.content {
+    text-align: center;
+    line-height: 30px;
+}
+img {
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 100px;
+}
+span {
+    padding-left: 20px;
+}
+.menu a {
+    text-align: center;
+    text-decoration: none;
+    color: rgb(247, 247, 247);
+    padding-left: 30px;
+}
+.footer {
+    background-color: #c7ccd1;
+    color: rgb(5, 5, 5);
+    text-align: center;
+    padding: 10px;
+    line-height: 30px;
+}
+.footer a {
+    color: rgb(49, 81, 167);
+}

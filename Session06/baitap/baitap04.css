@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #59aa5f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    line-height: 40px;
+}
+.menu {
+    line-height: 30px;
+}
+.menu a {
+    text-align: center;
+    color: rgb(32, 108, 221);
+    padding-left: 10px;
+}
+.left {
+    border: 2px solid gray;
+    width: 20vw;
+    background-color: #f3ecec;
+}
