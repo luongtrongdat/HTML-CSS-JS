@@ -12,6 +12,7 @@ h2 {
     display: inline-block;
     width: 80%;
     line-height: 100px;
+    padding-left: 15px;
 }
 .container a {
     text-decoration: none;
@@ -29,7 +30,7 @@ img {
     align-items: center;
 }
 span {
-    padding-left: 20px;
+    padding-right: 10px;
 }
 .button {
     background-color: rgb(155, 151, 151);

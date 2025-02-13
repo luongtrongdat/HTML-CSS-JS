@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    width: max-content;
+    padding: 20px;
+}
+img{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.card{
+    width: 320px;
+    background: white;
+    border-radius: 16px;
+    border: 2px solid gainsboro;
+    overflow: hidden;
+    text-align: center;
+}
+h1{
+    background: red;
+    color: white;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.content {
+    padding: 16px;
+}
+
+.content span {
+    color: orange;
+    font-weight: bold;
+}
+
+.content hr {
+    border: none;
+    border-top: 1px solid white;
+    margin: 12px 0;
+}
+
+button{
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 12px;
+    background: red;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 24px;
+    font-size: 15px;
+}
+
+.button{
+    text-align: center;
+    width: 50%;
+    background: white;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+button:hover{
+    background-color: gainsboro;
+}
+ion-icon{
+    font-size: 20px;
+}
+button p{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
