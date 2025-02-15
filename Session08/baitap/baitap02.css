@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+table {
+    background-color: #50445f;
+    width: 500px;
+    height: 300px;
+    padding: 20px;
+}
+.text {
+    font-size: 30px;
+    padding: 10px;
+}
+.label {
+    color: white;
+    font-size: 12px;
+}
+.input {
+    height: 30px;
+    width: 210px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: #50445f;
+}
+.input_message {
+    font-size: 12px;
+    padding: 10px;
+    color: white;
+}
+.input_message .message {
+    height: 100px;
+    width: 210%;
+    background-color: #50445f;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding-top: 10px;
+    margin-top: 20px
+}
+.button {
+    padding: 10px;
+    width: 190px;
+    height: 50px;
+    color: white;
+    border: 10px;
+    border-radius: 20px;
+}

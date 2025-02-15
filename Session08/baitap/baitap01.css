@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    padding: 15px;
+    border-color: rgb(205, 205, 205);
+}
+.box1 {
+    padding: 20px 30px;
+    width: 400px;
+    border-left-color:white ;
+}
+.time {
+    text-align: center;
+    margin-right: 40px;
+    font-size: small;
+}
+.heading {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #212931;
+    width: 320px;
+}
+.photo {
+    height: 190px;
+    width: 380px;
+}
+.paragrapgh {
+    padding: 15px 0px;
+    font-weight: bold;
+    color: rgb(75, 73, 73);
+    font-family: 'Times New Roman', Times, serif;
+}
+.button {
+    color: rgb(111, 111, 111);
+    margin: 7px 90px;
+    padding: 10px 20px;
+    border: 2px solid rgb(111, 111, 111); 
+    border-radius: 0px;
+    margin-left: 120px;
+}
