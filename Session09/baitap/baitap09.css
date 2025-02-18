@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    margin: 10px;
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+
+}
+.header-photo {
+    position: relative;    
+}
+.header-photo .textPhoto {
+    position: absolute;
+    color: white;
+    gap: 20px;
+    left: 10px;
+    bottom: 10px;
+}
+.footer1 {
+    display: flex;
+    flex-direction: row;
+    width: 850px;
+}
+
+
+.footer1-photo1 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 175px;
+
+}
+.textPhoto {
+    position: absolute;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    left: 10px;
+    bottom: 10px;
+    font-size: 13px;
+}
+.footer1-photo2 {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    gap: 10px;
+    height: 175px;
+    font-size: 15px;
+}
+.footer1-photo3 {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    gap: 10px;
+    height: 175px;
+    font-size: 15px;
+}
+.footer2 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.footer2-photo1 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 175px;
+}
+.footer2-photo2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 175px;
+}
+
+
+.button-box {
+    height: 175px;
+    width: 278px;
+    background-color: brown;
+    text-align: center;
+    line-height: 90px;
+    font-size: 15px;
+    color: white;
+
+}
+.button-box button{
+    padding: 10px 90px ;
+    color: brown;
+    font-size: 12px;
+}

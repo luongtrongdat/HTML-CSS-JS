@@ -1,0 +1,48 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 10px;
+}
+
+
+.heading {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35PX;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+.photo-container {
+    display: flex;
+    gap: 15px;
+}
+.photo-item {
+    width: 257px;
+    border: 1px solid transparent;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.title {
+    border-radius: 4px;
+    text-align: center;
+    font-size: 35px;
+    background-image: linear-gradient(pink, white, lightblue);
+    font-family: "Sigmar", serif;
+    font-weight: 400;
+    font-style: normal;  
+    line-height: 90px;
+}
+.photo-item .photo {
+    border-radius: 4px;
+    display: flex;
+    flex: 1;
+}
+img {
+    width: 255px;
+    height: 300px;
+}

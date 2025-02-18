@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e5e5e5;
+}
+.title {
+        font-family: "Grechen Fuemen", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 35px;
+}
+ul li{
+    list-style: none;
+}
+ul li a{
+    text-decoration: none;
+    color: gray;
+}
+.nav-items {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    gap: 20px;
+}
+.bolded-text {
+    font-weight: 600;
+}
+.search-button button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    width: 90px;
+    line-height: 30px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background-color: #8d939e;
+}
