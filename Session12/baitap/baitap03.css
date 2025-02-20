@@ -1,0 +1,10 @@
+.container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 50% !important;
+    border-radius: 10px;
+}
+.btn-close {
+    cursor: pointer;
+}
+  
