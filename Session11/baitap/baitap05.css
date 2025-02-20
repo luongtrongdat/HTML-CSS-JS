@@ -27,6 +27,7 @@
 .nav {
     width: calc(100% / 3 *2);
     background-color: rgb(159 74 75);
+    padding: 10px;
 }
 .menu {
     display: none;
@@ -39,11 +40,13 @@
     width: calc(100% / 3 *2);
     height: 250px;
     background-color: rgb(159 74 75);
+    padding: 100px;
 }
 .aside {
     height: 250px;
     width: calc(100% / 3);
     background-color: rgb(159 74 75);
+    padding: 100px;
 }
 .column-list {
     display: flex;
@@ -55,6 +58,7 @@
     height: 100px;
     width: calc(33.62% - 10px);
     background-color: rgb(159 74 75);
+    padding: 30px;
 }
 @media screen and (max-width: 1199px){
     .container {
