@@ -1,0 +1,14 @@
+let number1 = Number("5");
+let number2 = Number("-1"); 
+let number3 = Number("Hello"); 
+console.log("Chuyển đổi thành số:");
+console.log('Number("5") =', number1);
+console.log('Number("-1") =', number2);
+console.log('Number("Hello") =', number3 ,'(Not a Number)');
+let str1 = String(55);
+let str2 = String(-10);
+let str3 = String(0);
+console.log("Chuyển đổi thành chuỗi:");
+console.log('String(55) =', str1);
+console.log('String(-10) =', str2);
+console.log('String(0) =', str3);
