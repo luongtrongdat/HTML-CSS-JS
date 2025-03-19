@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap05</title>
+    <style>
+        th {
+            padding: 10px;
+        }
+        td{
+            padding: 10px;
+        }
+        table{
+            width: 285px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Danh sách nhân viên</h1>
+    <table class="container" border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <!-- <tr>
+                <td>1</td>
+                <td>Hoang Son</td>
+                <td>18</td>
+                <td>Ha Noi</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Khac Hung</td>
+                <td>18</td>
+                <td>Thai Binh</td>
+            </tr> -->
+        </tbody>
+      
+    </table>
+    <script>
+        const employees = [
+            {
+                id: 1,
+                name: "Đạt",
+                age: 10,
+                address: "District",
+            },
+            {
+                id: 2,
+                name: "Đạt",
+                age: 11,
+                address: "District",
+            },
+            {
+                id: 3,
+                name: "Đạt",
+                age: 12,
+                address: "District",
+            },
+        ];
+        function show (){
+            let str = "";
+            for(i=0;i<employees.length;i++) {
+                str+=
+                `<tr>
+                    <td>${employees[i].id}</td>
+                    <td>${employees[i].name}</td>
+                    <td>${employees[i].age}</td>
+                    <td>${employees[i].address}</td>
+                </tr>`;
+                
+            }
+            document.getElementById("tbody").innerHTML=str;
+        }
+        show();
+    </script>
+    
+</body>
+</html>
