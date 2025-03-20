@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap03</title>
+    <style>
+        button {
+            border-radius: 5px;
+            cursor: pointer;
+            background-image: linear-gradient(pink, white, lightblue);
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="" id="" placeholder="Nhập tên môn học">
+        <button>Thêm môn học</button>
+    </form>
+    <ol>
+    </ol>
+    <script>
+        let monHoc = [];
+        function inMonhoc () {
+            let str = "";
+            for(i=0;i<monHoc.length;i++) {
+                str+=`<li>${monHoc[i]}</li>`;
+            }
+            document.getElementsByTagName("ol")[0].innerHTML=str;
+        }
+        function themMonhoc (event) {
+            event.preventDefault();
+            let value = document.getElementsByTagName("input")[0].value;
+            if(value == "") {
+                alert("Tên môn học không được để trống");
+            } else {
+                monHoc.push(value);
+                inMonhoc();
+            }
+        }
+        document.getElementsByTagName("form")[0].addEventListener("submit",themMonhoc);
+    </script>
+</body>
+</html>

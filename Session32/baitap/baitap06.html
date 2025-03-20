@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap06</title>
+    <style>
+        .container {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            width: 500px;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="text" id="text">Chữ sẽ thay đổi kích thước khi bấm nút</p>
+        <div>
+            <button class="btn btn-increase" id="increase">+</button>
+            <button class="btn btn-decrease" id="decrease">-</button>
+        </div>
+    </div>
+    <script>
+        let textElement = document.getElementById("text");
+        let increaseButton = document.getElementById("increase");
+        let decreaseButton = document.getElementById("decrease");
+        let fontSize = 24;
+        increaseButton.addEventListener("click", function() {
+            fontSize += 2; 
+            textElement.style.fontSize = fontSize + "px";
+        });
+        decreaseButton.addEventListener("click", function() {
+            fontSize -= 2; 
+            textElement.style.fontSize = fontSize + "px";
+        });
+    </script>
+</body>
+</html>
