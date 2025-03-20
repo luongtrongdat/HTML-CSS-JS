@@ -29,8 +29,8 @@
     </div>
     <script>
         let textElement = document.getElementById("text");
-        let increaseButton = document.getElementById("increase");
-        let decreaseButton = document.getElementById("decrease");
+        let increaseButton = document.getElementById("increase").style.backgroundColor = "red";
+        let decreaseButton = document.getElementById("decrease").style.backgroundColor = "green";
         let fontSize = 24;
         increaseButton.addEventListener("click", function() {
             fontSize += 2; 
