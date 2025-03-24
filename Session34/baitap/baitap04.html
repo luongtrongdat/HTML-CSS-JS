@@ -61,7 +61,7 @@
         <div id="list-job">
             <div class="job">
                 <div class="title-job"></div>
-                <div class="btn-remove-job">x</div>
+                <div class="btn-remove-job"></div>
             </div>
             <hr>
         </div>
@@ -86,7 +86,7 @@
             const listJobHtmls = jobs.map((item, index) => {
                 return `<div class="job">
                         <div class="title-job">${item}</div>
-                        <div class="btn-remove-job" onclick = "removeJob(${index})">x</div>
+                        <div class="btn-remove-job" onclick = "removeJob(${index})">Xóa</div>
                     </div>
                     <hr>`
             })
