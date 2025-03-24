@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap01</title>
+    <style>
+        .container {
+            background-color: rgb(248, 243, 243);
+            border-radius: 8px;
+            width: 500px;
+            height: 380px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center; 
+            padding-top: 30px;           
+        }
+        input {
+            width: 400px;
+            height: 30px;
+            border-radius: 5px;
+            margin-left: 50px;
+            border: 1px solid rgb(168, 167, 167);
+        }
+        p {
+            margin-left: 50px;
+        }
+        button {
+            width: 81%;
+            height: 40px;
+            background-color: rgb(0, 119, 255);
+            border-radius: 5px;
+            border: none;
+            margin-left: 50px;
+            color: white;
+        }
+        button:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <p>Email:</p>
+        <input id="email" type="text" placeholder="Enter your email address">
+        <p>Password:</p>
+        <input id="password" type="text" placeholder="Enter your password">
+        <p>Confirm Password:</p>
+        <input id="confirmPassword" type="text" placeholder="Enter your password">
+        <br>
+        <br>
+        <button onclick="register()">Register</button>
+    </div>
+    <script>
+        function register() {
+            let email= document.getElementById("email").value.trim();
+            let pass= document.getElementById("password").value.trim();
+            let confirmPass= document.getElementById("confirmPassword").value.trim();
+            
+            if (!email || !pass || !confirmPass) {
+                alert("Vui lòng không bỏ trống thông tin.");
+                return;
+            }
+            if (pass !== confirmPass) {
+                alert("Mật khẩu không khớp.");
+                return;
+            }
+            let users = JSON.parse(localStorage.getItem('user')) || [];
+            let findUser = users.find((item) => item.email === email);
+            if (findUser) {
+                alert("Email đã tồn tại.");
+                return;
+            }
+            users.push({email, pass});
+            localStorage.setItem("user", JSON.stringify(users));
+            alert("Đăng ký thành công.");
+        }
+    </script>
+</body>
+</html>

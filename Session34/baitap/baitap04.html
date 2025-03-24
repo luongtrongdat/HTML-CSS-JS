@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap04</title>
+    <style>
+        .container{
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #dadada;
+            border-radius: 8px;
+        }
+        h1{
+            text-align: center;
+        }
+        #add-job #job-input{
+            height: 35px;
+            margin: 10px 0;
+            border: 1px solid #dadada;
+            border-radius: 8px;
+            width: 80%;
+            padding: 10px;
+        }
+        #add-job #btn-add-job{
+            border-style: none; 
+            width: fit-content;
+            padding: 8px 12px;
+            background-color: #28A745;
+            color: white;
+            border-radius: 5px;
+        }
+        #list-job{
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        #list-job .job{
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: center;
+        }
+        #list-job .job .btn-remove-job{
+            padding: 5px 12px;
+            background-color: #DC3545;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <form id="add-job">
+            <input type="text" id="job-input" placeholder="Nhập công việc cần làm...">
+            <br>
+            <button id="btn-add-job">Thêm</button>
+        </form>
+        <div id="list-job">
+            <div class="job">
+                <div class="title-job"></div>
+                <div class="btn-remove-job">x</div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <script>
+        let jobInputElement = document.querySelector('#job-input');
+        let btnAddJobElement = document.querySelector("#btn-add-job");
+        let listJobElement = document.querySelector('#list-job');
+        let jobs = JSON.parse(localStorage.getItem('jobs')) || [];
+        renderListJob();
+        btnAddJobElement.addEventListener('click', function(event){
+            event.preventDefault();
+            if(jobInputElement.value === ''){
+                alert('Vui lòng nhập công việc');
+                return;
+            }
+            jobs.push(jobInputElement.value);
+            localStorage.setItem('jobs', JSON.stringify(jobs));
+            renderListJob();
+        })
+        function renderListJob(){
+            const listJobHtmls = jobs.map((item, index) => {
+                return `<div class="job">
+                        <div class="title-job">${item}</div>
+                        <div class="btn-remove-job" onclick = "removeJob(${index})">x</div>
+                    </div>
+                    <hr>`
+            })
+            listJobElement.innerHTML = listJobHtmls.join("");
+        }
+        function removeJob(index){
+            jobs.splice(index, 1);
+            renderListJob();
+            localStorage.setItem('jobs', JSON.stringify(jobs));
+        }
+    </script>
+</body>
+</html>

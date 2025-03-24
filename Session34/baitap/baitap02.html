@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap02</title>
+    <style>
+        .header h2 {
+            text-align: center;
+        }
+        input {
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        select {
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Tast Management</h2>
+            <input type="text" placeholder="Content">
+            <input type="date">
+            <select name="" id="">
+                <option value="">Choose status</option>
+                <option value="">Pending</option>
+            </select>
+            <input type="text" placeholder="Username">
+            <button onclick="createCourse()">Submit</button>
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Content</th>
+                        <th>Due date</th>
+                        <th>Status</th>
+                        <th>Assigned</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="body_table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function readData() {
+            let courserDataHtml = "";
+            let courses = JSON.parse(localStorage.getItem("courses")) || [];
+            for (let i = 0; i < courses.length; i++) {
+                courserDataHtml += 
+                `
+                    <tr>
+                        <td>${courses[i].id}</td>
+                        <td>${courses[i].content}</td>
+                        <td>${courses[i].dueDate}</td>
+                        <td>${courses[i].status}</td>
+                        <td>${courses[i].assigned}</td>
+                        <td><button onclick="editCourse(${i})">sửa</button></td>
+                        <td><button onclick="deleteCourse(${i})">xóa</button></td>
+                    </tr>
+                `;
+            }
+            let bodyTable = document.getElementById("body_table");
+            bodyTable.innerHTML = courserDataHtml;
+        }
+        function createCourse() {
+            let contentText = document.getElementById("content").value;
+            let dateText = document.getElementById("date").value;
+            let statusText = document.getElementById("status").value;
+            let useName = document.getElementById("useName").value;
+            if (contentText === "" || dateText === "" || statusText === "" || useName === "") {
+                console.log("Không được để trống.");            
+                return;
+            }
+            let courses = JSON.parse(localStorage.getItem("courses")) || [];
+            courses.push({id, contentText, dateText, statusText, useName});
+            clearnData();
+            localStorage.setItem("courses", JSON.stringify(courses));
+            readData();
+        }
+        function clearData() {
+        document.getElementById("content").value = '';
+        document.getElementById("date").value = '';
+        document.getElementById("status").value = '';
+        document.getElementById("useName").value = '';
+    }
+    </script>
+</body>
+</html>

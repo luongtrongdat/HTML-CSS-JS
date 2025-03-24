@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap03</title>
+    <style>
+        .container{
+            width: 30%;
+            padding: 20px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin: 50px auto;
+            border-radius: 8px;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #form-group{
+            display: flex;
+            flex-direction: column;
+        }
+        #email, #password, #confirm-password{
+            height: 30px;
+            border: 1px solid #dadada;
+            padding: 5px;
+            border-radius: 8px;
+        }
+        button{
+            margin-top: 20px;
+            padding: 8px;
+            border-radius: 8px;
+            background-color: #007BFF;
+            color: white;
+            border: 1px solid #dadada;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="form-group">
+            <label for="email">Email</label>
+            <br><input type="text" id="email" placeholder="Enter your email" required>
+            <br><label for="password">Password</label>
+            <br><input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        let accounts = JSON.parse(localStorage.getItem('accounts'));
+        let emailElement = document.querySelector('#email');
+        let passwordElement = document.querySelector('#password');
+        let btnLoginElement = document.querySelector('button');
+
+        btnLoginElement.addEventListener('click', function(event){
+            const checkLogin = accounts.some(user => 
+                user.email === emailElement.value && user.password === passwordElement.value
+            );
+
+            if(checkLogin){
+                alert('Đăng nhập thành công');
+            }
+            else{
+                alert('Email hoặc mật khẩu không đúng');
+            }
+        });
+    </script>
+</body>
+</html>
