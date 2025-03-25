@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap02</title>
+    <style>
+        .container {
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #dadada;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        /* .header {
+        } */
+        .header .close {
+            position: absolute;
+            cursor: pointer;
+            top: 30px;
+            left: 500px;
+        }
+        /* h3 {
+            color: white;
+        }
+        .content {
+
+        } */
+        .content p {
+            color: blueviolet;
+        }
+        .content input {
+            border: 1px solid blueviolet;
+            border-radius: 5px;
+            width: 100%;
+            padding: 5px;
+        }
+        .content button {
+            background-color: blueviolet;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 70px;
+            padding: 5px;
+
+        }
+        .content button:hover {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Add Bookmark</h3>
+            <p class="close">X</p>
+        </div>
+        <div class="content">
+            <p>Website Name:</p>
+            <input type="text" id="websiteName">
+            <p>Website URL</p>
+            <input type="text" id="websiteURL">
+            <br>
+            <br>
+            <button onclick="btn()">Save</button>
+        </div>
+    </div>
+    <script>
+        function closed() {
+            document.getElementsByClassName("container")[0].style.display = "block";
+
+        }
+        function btn() {
+            let websiteName = document.getElementById("websiteName").value;
+            let websiteURL = document.getElementById("websiteURL").value;
+            if (websiteName.length == 0 || websiteURL.length == 0) {
+                alert("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
+            let bookmark = {
+                websiteName: websiteName,
+                websiteURL: websiteURL
+            }
+            let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+            bookmarks.push(bookmark);
+            localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+            document.getElementById("websiteName").value = "";
+            document.getElementById("websiteURL").value = "";
+        }
+        function addBookMark() {
+            let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+            let str = "";
+            for (let i = 0; i < bookmarks.length; i++) {
+                str += `
+                    <li>
+                        <a href="${bookmarks[i].websiteURL}" target="_blank">${bookmarks[i].websiteName}</a>
+                        <button onclick="deleteBookMark(${i})">Xóa</button>
+                    </li>
+                `;
+            }
+            document.getElementById("ol").innerHTML = str;
+        }
+    </script>
+</body>
+</html>

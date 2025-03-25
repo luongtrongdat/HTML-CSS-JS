@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap01</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h2>To-Do List K24</h2>
+    <input value="" id="name" placeholder="Nhập công việc...">
+    <button onclick="addTodo()">Thêm</button>
+    <ol id="ol">
+        <!-- <li>Học lập trình<button>Sửa</button><button>Xóa</button></li>
+        <li>Học js<button>Sửa</button><button>Xóa</button></li> -->
+    </ol>
+    <script>
+        let jobs = JSON.parse(localStorage.getItem("jobs")) || [];
+        function addTodo() {
+            let name = document.getElementById("name").value;
+            if (name.length == 0) {
+                alert("Vui lòng nhập công việc");
+                return;
+            }
+            let id = 0;
+            if (jobs.length == 0) {
+                id = 1;
+            } else {
+                id = jobs[jobs.length - 1].id + 1;
+            }
+            let job = {
+                id: id,
+                name: name
+            }
+            jobs.push(job);
+            localStorage.setItem("jobs", JSON.stringify(jobs));
+            document.getElementById("name").value = "";
+            showJob();
+        }
+        function showJob() {
+            let str = "";
+            for (let i = 0; i < jobs.length; i++) {
+                str += 
+                `
+                    <li>${jobs[i].name}
+                    <button onclick="updateJob(${i})">Sửa</button>
+                    <button onclick="deleteJob(${i})">Xóa</button>
+                    </li>
+                `;
+            }
+            document.getElementById("ol").innerHTML = str;
+        }
+        showJob();
+        function deleteJob(index) {
+            let deleteConfirm = confirm("Bạn có chắc chắn muốn xóa công việc này không?");
+            if (deleteConfirm) {
+                jobs.splice(index, 1);
+                localStorage.setItem("jobs", JSON.stringify(jobs));
+                showJob();
+                return;
+            }
+        }
+        function updateJob(index) {
+            let newName = prompt(`Công việc ban đầu ${jobs[index].name}, nhập công việc mới:`);
+            if (newName == null || newName.length == 0) {
+                return;
+            }
+            jobs[index].name = newName;
+            localStorage.setItem("jobs", JSON.stringify(jobs));
+            showJob();
+            return;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap04</title>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .input-container {
+            margin-bottom: 15px;
+        }
+        input {
+            padding: 8px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .pagination {
+            margin-top: 15px;
+        }
+        .pagination button {
+            margin: 2px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: white;
+        }
+        .pagination button.active {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+   </style>
+</head>
+<body>
+    <h2>Danh sách nhân viên Rikkei</h2>
+    <div class="input-container">
+        <input type="text" id="nameInput" placeholder="Tên nhân viên">
+        <input type="text" id="positionInput" placeholder="Chức vụ">
+        <button onclick="addEmployee()">Thêm nhân viên</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Chức vụ</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTable"></tbody>
+    </table>
+    <div id="pagination" class="pagination"></div>
+   <script>
+        let employees = [
+            { id: 1, name: "Nguyễn Văn A", position: "Developer" },
+            { id: 2, name: "Trần Thị B", position: "Designer" },
+            { id: 3, name: "Phạm Văn C", position: "Project Manager" },
+            { id: 4, name: "Lê Văn D", position: "Tester" },
+            { id: 5, name: "Hoàng Thị E", position: "HR" }
+        ];
+        const itemsPerPage = 3;
+        let currentPage = 1;
+        function renderEmployees(page = 1) {
+            const tableBody = document.getElementById("employeeTable");
+            tableBody.innerHTML = "";
+            let start = (page - 1) * itemsPerPage;
+            let end = start + itemsPerPage;
+            let paginatedItems = employees.slice(start, end);
+            paginatedItems.forEach((employee, index) => {
+                let row = `<tr>
+                    <td>${start + index + 1}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.position}</td>
+                    <td><button onclick="deleteEmployee(${employee.id})">Xóa</button></td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+            renderPagination();
+        }
+        function addEmployee() {
+            let nameInput = document.getElementById("nameInput").value.trim();
+            let positionInput = document.getElementById("positionInput").value.trim();
+            if (nameInput === "" || positionInput === "") {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            let newEmployee = {
+                id: employees.length + 1,
+                name: nameInput,
+                position: positionInput
+            };
+            employees.push(newEmployee);
+            document.getElementById("nameInput").value = "";
+            document.getElementById("positionInput").value = "";
+            renderEmployees(currentPage);
+        }
+        function deleteEmployee(id) {
+            employees = employees.filter(emp => emp.id !== id);
+            renderEmployees(currentPage);
+        }
+        function renderPagination() {
+            let pagination = document.getElementById("pagination");
+            pagination.innerHTML = "";
+            let totalPages = Math.ceil(employees.length / itemsPerPage);
+            pagination.innerHTML += `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}>Previous</button>`;
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.innerHTML += `<button onclick="changePage(${i})" class="${i === currentPage ? 'active' : ''}">${i}</button>`;
+            }
+            pagination.innerHTML += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""}>Next</button>`;
+        }
+        function changePage(page) {
+            let totalPages = Math.ceil(employees.length / itemsPerPage);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderEmployees(currentPage);
+        }
+        renderEmployees();
+   </script>
+</body>
+</html>
