@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap03</title>
+    <style>
+        .container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px solid rgb(163, 163, 163);
+            width: 400px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .red {
+            background-color: red;
+            color: white;
+            border: 1px solid red;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .blue {
+            background-color: blue;
+            color: white;
+            border: 1px solid blue;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .yellow {
+            background-color: yellow;
+            border: 1px solid yellow;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .purple {
+            background-color: purple;
+            color: white;
+            border: 1px solid purple;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-image: linear-gradient(pink, violet, rgb(142, 214, 238));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Chọn màu nền yêu thích</h2>
+        <button class="red" onclick="changeColor('red')">Đỏ</button>
+        <button class="blue" onclick="changeColor('blue')">Xanh</button>
+        <button class="yellow" onclick="changeColor('yellow')">Vàng</button>
+        <button class="purple" onclick="changeColor('purple')">Tím</button>
+        <p>Trang sẽ ghi nhớ màu của bạn kể cả khi tải lại!</p>
+    </div>
+    <script>
+        function changeColor(color) {
+            document.getElementsByClassName("container")[0].style.backgroundColor = color;
+            localStorage.setItem("backgroundColor", color);
+        }
+        function getColor() {
+            let item = localStorage.getItem("backgroundColor");
+            document.getElementsByClassName("container")[0].style.backgroundColor = item;
+        }
+        getColor();
+    </script>
+</body>
+</html>

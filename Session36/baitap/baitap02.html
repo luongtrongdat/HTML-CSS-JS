@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baitap04</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dish-container{
+            width: 800px;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dish-container .dish-item{
+            display: flex;
+            padding: 15px;
+            width: 50%;
+            gap: 10px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .dish-container .dish-item .dish-infor{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .btn-like-dish{
+            width: fit-content;
+            padding: 8px;
+            border-style: none;
+            background-color: #28A745;
+            color: white;
+            border-radius: 8px;
+            transition: all 0.2s linear;
+        }
+
+        .btn-like-dish:hover{
+            cursor: pointer;
+            background-color: #32c955;
+        }
+
+        .dish-image{
+            width: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bạn thích món nào🥘</h1>
+        <div class="dish-container"></div>
+    </div>
+    <script>
+        const listDish = [
+            {
+                name: 'Bún bò huế',
+                image: 'https://satrafoods.com.vn/uploads/Images/mon-ngon-moi-ngay/bun-bo-hue.jpg',
+                countLike: 0,
+            },
+            {
+                name: 'Phở bò Hà Nội',
+                image: 'https://mia.vn/media/uploads/blog-du-lich/top-19-quan-pho-ha-noi-ngon-nuc-tieng-an-la-ghien-phan-1-06-1639125006.jpg',
+                countLike: 0,
+            },
+            {
+                name: 'Cơm tấm Sài Gòn',
+                image: 'https://cafefcdn.com/203337114487263232/2022/12/7/photo-9-1670398141900764774990.jpg',
+                countLike: 0,
+            }
+        ];
+
+        const listDishLocal = JSON.parse(localStorage.getItem('listDishLocal')) || [];
+        const dishContainerElement = document.querySelector('.dish-container'); 
+
+        function renderLishDish(listDish){
+            const dishContainerHtmls = listDish.map((item, index) => {
+                return `<div class="dish-item">
+                        <img class="dish-image" src="${item.image}" alt="">
+                        <div class="dish-infor">
+                            <h2 class="dish-name">${item.name}</h2>
+                            <div class="dish-like">💖${item.countLike} lượt thích</div>
+                            <button class="btn-like-dish" onclick = "increaseLike(${index})">Thích +1</button>
+                        </div>
+                    </div>`
+            })
+            dishContainerElement.innerHTML = dishContainerHtmls.join('');
+            localStorage.setItem('listDishLocal', JSON.stringify(listDishLocal));
+        }
+
+        if(listDishLocal.length === 0){
+            renderLishDish(listDish);
+        }
+        else{
+            renderLishDish(listDishLocal);
+        }
+
+        const countLikeElement = document.querySelector('.btn-like-dish');
+
+        function increaseLike(index){
+            listDish[index].countLike += 1;
+            listDishLocal.splice(0, listDishLocal.length, ...listDish);
+            renderLishDish(listDishLocal);
+        }
+    </script>
+</body>
+</html>
